@@ -1,5 +1,35 @@
 apply plugin: 'com.android.library'
 
+
+tasks.withType(Javadoc).all {
+    enabled = false
+}
+
+ext {
+    bintrayRepo = 'maven'
+    bintrayName = 'context-extensions'
+
+    publishedGroupId = 'academy.appdev'
+    libraryName = 'ContextExtensions'
+    artifact = 'context-extensions'
+
+    libraryDescription = ''
+
+    siteUrl = ''
+    gitUrl = 'https://github.com/appdev-academy/useful-extensions-android'
+
+    libraryVersion = '1.0.0'
+
+    developerId = 'staspetrenko'
+    developerName = 'Stas Petrenko'
+    developerEmail = 'stas@appdev.academy'
+
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+}
+
+
 android {
     compileSdkVersion 28
 
@@ -35,3 +65,9 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 }
+
+
+
+// Place it at the end of the file
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'

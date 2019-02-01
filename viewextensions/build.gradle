@@ -2,10 +2,36 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-android'
 
+tasks.withType(Javadoc).all {
+    enabled = false
+}
+
+ext {
+    bintrayRepo = 'maven'
+    bintrayName = 'view-extensions'
+
+    publishedGroupId = 'academy.appdev'
+    libraryName = 'ViewExtensions'
+    artifact = 'view-extensions'
+
+    libraryDescription = ''
+
+    siteUrl = ''
+    gitUrl = 'https://github.com/appdev-academy/useful-extensions-android'
+
+    libraryVersion = '1.0.0'
+
+    developerId = 'staspetrenko'
+    developerName = 'Stas Petrenko'
+    developerEmail = 'stas@appdev.academy'
+
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+}
+
 android {
     compileSdkVersion 28
-
-
 
     defaultConfig {
         minSdkVersion 14
@@ -44,3 +70,9 @@ dependencies {
 repositories {
     mavenCentral()
 }
+
+
+
+// Place it at the end of the file
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'

@@ -4,11 +4,11 @@
 
 # Overview
 
-Toolkit for android developers. Contains useful extensions for base android classes.
+Toolkit for android developers. 
+Contains useful extensions for base android classes.
 
 # context-extensions
 [![Download](https://api.bintray.com/packages/staspetrenko/maven/context-extensions/images/download.svg)](https://bintray.com/staspetrenko/maven/context-extensions/_latestVersion)
-
 
 Extension methods and properties for classes that inherit `Context`.
 ### Installation
@@ -28,6 +28,7 @@ implementation 'academy.appdev:context-extensions:1.0.0'
 
 # view-extensions
 [![Download](https://api.bintray.com/packages/staspetrenko/maven/view-extensions/images/download.svg)](https://bintray.com/staspetrenko/maven/view-extensions/_latestVersion)
+
 Extension methods and properties for classes that inherit `View`.
 ### Installation
 #### maven

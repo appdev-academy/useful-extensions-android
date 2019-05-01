@@ -12,7 +12,8 @@ Toolkit for android developers. Contains useful extensions for base android clas
 
 Extension methods and properties for classes that inherit `Context`.
 ### Installation
-``` maven
+#### maven
+``` xml
 <dependency>
 	<groupId>academy.appdev</groupId>
 	<artifactId>context-extensions</artifactId>
@@ -20,6 +21,7 @@ Extension methods and properties for classes that inherit `Context`.
 	<type>pom</type>
 </dependency>
 ```
+#### gradle
 ``` gradle
 implementation 'academy.appdev:context-extensions:1.0.0'
 ```
@@ -28,6 +30,7 @@ implementation 'academy.appdev:context-extensions:1.0.0'
 [![Download](https://api.bintray.com/packages/staspetrenko/maven/view-extensions/images/download.svg)](https://bintray.com/staspetrenko/maven/view-extensions/_latestVersion)
 Extension methods and properties for classes that inherit `View`.
 ### Installation
+#### maven
 ``` maven
 <dependency>
 	<groupId>academy.appdev</groupId>
@@ -36,6 +39,7 @@ Extension methods and properties for classes that inherit `View`.
 	<type>pom</type>
 </dependency>
 ```
+#### gradle
 ``` gradle
 compile 'academy.appdev:view-extensions:1.0.0'
 ```

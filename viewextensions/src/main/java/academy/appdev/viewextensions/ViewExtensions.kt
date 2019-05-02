@@ -17,8 +17,9 @@ import java.util.*
  * Created by stas on 2/1/19.
  */
 
+
 /**
- * Get/Set views visibility.
+ * Get/Set is view visible/gone.
  * true - VISIBLE
  * false - GONE
  */
@@ -28,9 +29,8 @@ var View.isVisible: Boolean
         visibility = if (value) View.VISIBLE else View.GONE
     }
 
-
 /**
- * Get/Set views visibility.
+ * Get/Set is view visible/invisible.
  * true - VISIBLE
  * false - INVISIBLE
  */
@@ -51,19 +51,29 @@ fun View.identify() {
     }
 }
 
+/**
+ * Disable clicks on view by intercepting touch event
+ */
 fun View.disableClicks() {
     setOnTouchListener { _, _ ->
         true
     }
 }
 
+/**
+ * Add ripple click animation
+ */
 fun View.addRippleAnimation() {
     context.obtainStyledAttributes(intArrayOf(R.attr.selectableItemBackground)).apply {
         backgroundResource = getResourceId(0, 0)
         recycle()
     }
+    animateAppearance()
 }
 
+/**
+ * Perform haptic feedback
+ */
 fun View.performHapticFeedback() = performHapticFeedback(
     HapticFeedbackConstants.VIRTUAL_KEY,
     HapticFeedbackConstants.FLAG_IGNORE_GLOBAL_SETTING or HapticFeedbackConstants.FLAG_IGNORE_VIEW_SETTING
@@ -71,8 +81,9 @@ fun View.performHapticFeedback() = performHapticFeedback(
 
 /**
  * Switch views visibility with animation
- * @param duration - animation duration in millis (default :200L)
- * @param interpolator - time interpolator (default : FastOutSlowInInterpolator)
+ * @param duration animation duration in millis (default : 200L)
+ * @param interpolator time interpolator (default : FastOutSlowInInterpolator)
+ * @param _isVisible visibility identifier: true - visible, false - gone
  */
 fun View.animateAppearance(
     duration: Long = 200L,
@@ -100,7 +111,6 @@ fun View.animateAppearance(
                 }
             }
         } else null)
-
     }.start()
 }
 

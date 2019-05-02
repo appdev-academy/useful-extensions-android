@@ -16,7 +16,9 @@ import android.widget.TextView
 
 
 /**
- * configure textSwitcher with animation
+ * Configure textSwitcher with animation
+ * @param animationDuration animation duration in millis. Equals 300 by default
+ * @param init closure extension for AppCompatTextView
  */
 fun TextSwitcher.prepare(animationDuration: Long = 300, init: AppCompatTextView.() -> Unit) {
     inAnimation = AnimationUtils.loadAnimation(context, android.R.anim.fade_in).apply { duration = animationDuration }
@@ -28,12 +30,16 @@ fun TextSwitcher.prepare(animationDuration: Long = 300, init: AppCompatTextView.
     }
 }
 
+/**
+ * Capitalize first letter
+ */
 fun EditText.capitalizeFirst() {
     inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_FLAG_CAP_SENTENCES
 }
 
 /**
- * set typeface
+ * Set text typeface
+ * @param path Path to asset
  */
 fun TextView.setFont(path: String) {
     typeface = Typeface.createFromAsset(context.assets, path)

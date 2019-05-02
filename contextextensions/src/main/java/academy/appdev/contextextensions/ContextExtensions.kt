@@ -16,25 +16,30 @@ import org.jetbrains.anko.windowManager
  * Created by stas on 2/1/19.
  */
 
+
+/**
+ * Get screen size
+ */
 private val Context.screenSizePoint: Point
     get() = Point().apply { windowManager.defaultDisplay.getSize(this) }
 
 /**
- * Screen width in pixels
+ * Get screen width in pixels
  */
 val Context.screenWidth: Int
     get() = screenSizePoint.x
 
 /**
- * Screen height in pixels
+ * Get screen height in pixels
  */
 val Context.screenHeight: Int
     get() = screenSizePoint.y
 
 /**
- *  replace font
+ *  Replace specific font with another
+ *  @param defaultFontNameToOverride  the font to be override
+ *  @param customFontFileNameInAssets new font file name in Assets folder
  */
-
 fun Context.overrideFont(defaultFontNameToOverride: String, customFontFileNameInAssets: String) {
     try {
         val customFontTypeface = Typeface.createFromAsset(assets, customFontFileNameInAssets)
@@ -49,9 +54,17 @@ fun Context.overrideFont(defaultFontNameToOverride: String, customFontFileNameIn
     }
 }
 
+/**
+ * Check if permission is granted
+ * @param permission permission name
+ */
 fun Context.isPermissionGranted(permission: String): Boolean =
     ContextCompat.checkSelfPermission(this, permission) == PackageManager.PERMISSION_GRANTED
 
+/**
+ * Replace activity with fade in animation
+ * @param intent Intent instance
+ */
 fun Activity.replaceActivity(intent: Intent) {
     startActivity(intent)
     overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
